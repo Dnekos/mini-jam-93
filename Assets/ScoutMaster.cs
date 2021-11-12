@@ -4,17 +4,20 @@ using UnityEngine;
 using Pathfinding;
 
 
-public class ScoutMaster : MonoBehaviour
+public class ScoutMaster : PathingBrain
 {
-	AIPath path;
 	int ClickableMasks;
 
+	ScoutBrain selectedScout;
+
+	// move to world manager later
+	public static int Health = 0;
 
     // Start is called before the first frame update
-    void Start()
+    override protected void Start()
     {
-		path = GetComponent<AIPath>();
-		ClickableMasks = LayerMask.GetMask("Ground", "Scout");
+		base.Start();
+		ClickableMasks = LayerMask.GetMask("Ground", "Clickable");
     }
 
     // Update is called once per frame
@@ -26,11 +29,28 @@ public class ScoutMaster : MonoBehaviour
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out info, 100.0f, ClickableMasks))
 			{
+				Debug.Log("clicked on " + info.collider.gameObject);
 				switch (info.transform.gameObject.tag)
 				{
 					case "Ground":
+						if (selectedScout)
+						{
+							selectedScout.MoveTo(info.point);
+							selectedScout = null;
+						}
+						else
+							SetDestination(info.point);
 						break;
 					case "Scout":
+						ScoutBrain newScout = info.collider.GetComponent<ScoutBrain>();
+						selectedScout = (selectedScout == newScout) ? null : info.collider.GetComponent<ScoutBrain>();
+						break;
+					case "Job":
+						if (selectedScout)
+						{
+							selectedScout.AssignJob(info.collider.GetComponent<BasicJob>());
+							selectedScout = null;
+						}
 						break;
 				}			
 			}
