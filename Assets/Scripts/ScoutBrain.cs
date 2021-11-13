@@ -165,6 +165,10 @@ public class ScoutBrain : PathingBrain
 	// Update is called once per frame
 	void Update()
     {
+		// keep stats capped
+		Focus = Mathf.Min(Focus, 10);
+		Fun = Mathf.Min(Fun, 10);
+
 		if (inAction) // if they are currently doing something, keep doing it
 			return;
 

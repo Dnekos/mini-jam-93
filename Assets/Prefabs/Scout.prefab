@@ -299,7 +299,7 @@ MonoBehaviour:
   Reticle: {fileID: 0}
   state: 0
   scoutName: 
-  IdleWaitRange: {x: 2, y: 7}
+  IdleWaitRange: {x: 2, y: 5}
   IdleDist: 1
   IdleFocusIncrement: 1
   Focus: 5
