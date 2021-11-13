@@ -9,8 +9,12 @@ public class PathingBrain : MonoBehaviour
 	Transform Reticle;
 	protected AIPath path;
 
+	Animator anim;
+
 	protected virtual void Start()
 	{
+		anim = GetComponent<Animator>();
+
 		path = GetComponent<AIPath>();
 		if (Reticle == null)
 			Reticle = GameObject.Find("PosReticle").transform;
@@ -25,9 +29,9 @@ public class PathingBrain : MonoBehaviour
 			Reticle.localScale = destCol.bounds.size;
 	}
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	protected virtual void Update()
     {
-        
+		anim.SetBool("isMoving", path.velocity.magnitude >= 0.05f);
     }
 }

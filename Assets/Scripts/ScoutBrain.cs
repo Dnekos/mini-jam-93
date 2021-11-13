@@ -9,13 +9,15 @@ public class ScoutBrain : PathingBrain
 	{
 		Idle,
 		Working,
-		Socializing
+		Socializing,
+		Queued
 	}
 	public ScoutState state;
 	bool inAction; // wether they are in the process of doing something
 
 	[Header("Social")]
 	[SerializeField] SocialCoordinator SC;
+	int SocialThoughtIndex; // seeded so that all socializers have similar thoughts
 
 	public string scoutName;
 	public ScoutBrain[] Friends;
@@ -53,9 +55,9 @@ public class ScoutBrain : PathingBrain
 			SC = FindObjectOfType<SocialCoordinator>();
 
 		scoutName = SC.AssignName();
+		gameObject.name = scoutName;
 		
 		thoughts = new List<string>();
-
 		// picking friends
 		Friends = SC.AssignFriends(this);
 	}
@@ -81,7 +83,7 @@ public class ScoutBrain : PathingBrain
 		Debug.Log(scoutName + "waiting idly");
 
 		inAction = true;
-		yield return new WaitForSeconds(Random.Range(IdleWaitRange.x, IdleWaitRange.y));
+		yield return new WaitForSeconds(5);
 		inAction = false;
 
 		Focus += IdleFocusIncrement;
@@ -97,17 +99,18 @@ public class ScoutBrain : PathingBrain
 		Focus++;
 		Fun++;
 		inAction = false;
-		AddThought(SC.SocialThought());
+		Debug.Log(scoutName+"finished socializign");
 
+		AddThought(SC.SocialThought(this,SocialThoughtIndex));
 
 		StateCheck();
 	}
 	#endregion
 	void AddThought(string thought)
 	{
-		thoughts.Add(thought);
+		thoughts.Insert(0,thought);
 		if (thoughts.Count > maxThoughts)
-			thoughts.RemoveAt(0);
+			thoughts.RemoveAt(maxThoughts);
 	}
 
 	#region scoutmaster actions
@@ -139,10 +142,11 @@ public class ScoutBrain : PathingBrain
 		SetDestination(point);
 	}
 	#endregion
-	
+
 	// Update is called once per frame
-	void Update()
-    {
+	override protected void Update()
+	{
+		base.Update();
 		// keep stats capped
 		Focus = Mathf.Min(Focus, maxStat);
 		Fun = Mathf.Min(Fun, maxStat);
@@ -162,6 +166,7 @@ public class ScoutBrain : PathingBrain
 				activeCo = StartCoroutine(DoWork());
 				break;
 			case ScoutState.Socializing:
+				activeCo = StartCoroutine(DoSocial());
 				break;
 		}
 	}
@@ -179,7 +184,7 @@ public class ScoutBrain : PathingBrain
 				else if (rando < 60 + Focus)
 					startWork();
 				else
-					startSocial();
+					queueSocial();
 				break;
 			case ScoutState.Working:
 				if (rando < 9 * Focus)
@@ -187,7 +192,7 @@ public class ScoutBrain : PathingBrain
 				else if (rando > 90)
 					startIdle();
 				else
-					startSocial();
+					queueSocial();
 				break;
 			case ScoutState.Socializing:
 				if (rando < 3 * Focus)
@@ -195,14 +200,14 @@ public class ScoutBrain : PathingBrain
 				else if (rando > 85)
 					startIdle();
 				else
-					startSocial();
+					queueSocial();
 				break;
 		}
 	}
 
 	void startIdle()
 	{
-		Debug.Log(scoutName + "("+ gameObject+") is now idle");
+		//Debug.Log(scoutName + "("+ gameObject+") is now idle");
 
 		GraphNode startOfPath, endOfPath;
 		int redun = 0;
@@ -217,19 +222,27 @@ public class ScoutBrain : PathingBrain
 		while (PathUtilities.IsPathPossible(startOfPath, endOfPath) == false && ++redun < 100);
 		state = ScoutState.Idle;
 	}
-	void startSocial()
+	void queueSocial()
 	{
-		Debug.Log(scoutName + "(" + gameObject + ") is now social");
+		//Debug.Log(scoutName + "(" + gameObject + ") is going to queue for social");
+				
+		SC.JoinQueue(this);
 
-		startIdle();
-		//state = ScoutState.Socializing;
+		startIdle(); // do the idle walk while queueing
+		state = ScoutState.Queued; // switch state so we dont stay as idle
 	}
 	void startWork()
 	{
-		Debug.Log(scoutName + "(" + gameObject + ") is now working");
+		//Debug.Log(scoutName + "(" + gameObject + ") is now working");
 
 		state = ScoutState.Working;
 		ActiveJob = SC.AssignJob();
 		path.destination = ActiveJob.JobPoint.position;
+	}
+	public void startSocial(Vector3 pos, int thoughtindex)
+	{
+		state = ScoutState.Socializing;
+		path.destination = pos;
+		SocialThoughtIndex = thoughtindex;
 	}
 }

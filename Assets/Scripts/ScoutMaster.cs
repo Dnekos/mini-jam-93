@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Pathfinding;
 
 
@@ -22,13 +23,14 @@ public class ScoutMaster : PathingBrain
 		ClickableMasks = LayerMask.GetMask("Ground", "Clickable","Scout","UI");
     }
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	override protected void Update()
     {
+		base.Update();
 		SelectedIndicator.LookAt(Camera.main.transform);
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
 		{
 			RaycastHit info;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
