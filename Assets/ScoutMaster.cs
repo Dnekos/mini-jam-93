@@ -17,7 +17,7 @@ public class ScoutMaster : PathingBrain
     override protected void Start()
     {
 		base.Start();
-		ClickableMasks = LayerMask.GetMask("Ground", "Clickable");
+		ClickableMasks = LayerMask.GetMask("Ground", "Clickable","Scout");
     }
 
     // Update is called once per frame

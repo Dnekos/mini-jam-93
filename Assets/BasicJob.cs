@@ -15,6 +15,10 @@ public class BasicJob : MonoBehaviour
 		Replace,
 		Add
 	}
+	[Header("Scout Stat Increments"), SerializeField]
+	float FunInc;
+	[SerializeField] float FocusInc;
+
 	[Header("Visual Indicators"), SerializeField]
 	StageMethod VisualMethod = StageMethod.Add;
 	[SerializeField] GameObject[] stages;
@@ -41,6 +45,12 @@ public class BasicJob : MonoBehaviour
 			Completed = true;
 		}
 	}
+	public void UpdateScout(ScoutBrain scout)
+	{
+		scout.Fun += FunInc;
+		scout.Focus += FocusInc;
+	}
+
 	void UpdateVisual()
 	{
 		float progRatio = Progress / TotalProgress;
