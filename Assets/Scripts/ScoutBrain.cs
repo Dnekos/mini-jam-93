@@ -16,7 +16,9 @@ public class ScoutBrain : PathingBrain
 
 	[Header("Social")]
 	public string scoutName;
-	List<GameObject> Friends;
+	public List<GameObject> Friends;
+	[SerializeField] int maxThoughts = 4;
+	public List<string> thoughts;
 
 	[Header("Idle"), SerializeField,Tooltip("Range for how long scout waits between idle movements")]
 	Vector2 IdleWaitRange;
@@ -30,6 +32,7 @@ public class ScoutBrain : PathingBrain
 	public float Skill;
 	[Tooltip("How happy the Scout is, determines score at the end.")]
 	public float Fun;
+	public int maxStat;
 
 	[Header("Jobs"),SerializeField, Tooltip("Speed is calulated by multiplier / Skill")]
 	float SpeedMultiplier;
@@ -45,11 +48,13 @@ public class ScoutBrain : PathingBrain
 		path.destination = transform.position;
 
 		PickName();
+		
+		thoughts = new List<string>();
 
 		// picking friends
 		Friends = new List<GameObject>();
 		ScoutBrain[] scouts = FindObjectsOfType<ScoutBrain>();
-		for (int i = 0; i < Random.Range(1, 4); i++)
+		for (int i = 0; i < Random.Range(1, 3); i++)
 		{
 			GameObject newobj;
 			int redun = 0;
@@ -166,8 +171,8 @@ public class ScoutBrain : PathingBrain
 	void Update()
     {
 		// keep stats capped
-		Focus = Mathf.Min(Focus, 10);
-		Fun = Mathf.Min(Fun, 10);
+		Focus = Mathf.Min(Focus, maxStat);
+		Fun = Mathf.Min(Fun, maxStat);
 
 		if (inAction) // if they are currently doing something, keep doing it
 			return;
