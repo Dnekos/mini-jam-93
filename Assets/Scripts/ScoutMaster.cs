@@ -10,6 +10,8 @@ public class ScoutMaster : PathingBrain
 
 	ScoutBrain selectedScout;
 
+	[SerializeField] Transform SelectedIndicator;
+
 	// move to world manager later
 	public static int Health = 0;
 
@@ -23,6 +25,9 @@ public class ScoutMaster : PathingBrain
     // Update is called once per frame
     void Update()
     {
+		SelectedIndicator.LookAt(Camera.main.transform);
+
+
         if (Input.GetMouseButtonDown(0))
 		{
 			RaycastHit info;
@@ -37,6 +42,9 @@ public class ScoutMaster : PathingBrain
 						{
 							selectedScout.MoveTo(info.point);
 							selectedScout = null;
+
+							SelectedIndicator.SetParent(null);
+							SelectedIndicator.position = Vector3.zero;
 						}
 						else
 							SetDestination(info.point);
@@ -44,12 +52,19 @@ public class ScoutMaster : PathingBrain
 					case "Scout":
 						ScoutBrain newScout = info.collider.GetComponent<ScoutBrain>();
 						selectedScout = (selectedScout == newScout) ? null : info.collider.GetComponent<ScoutBrain>();
+						
+						SelectedIndicator.SetParent(selectedScout.transform);
+						SelectedIndicator.localPosition = Vector3.up * 0.7f;
+
 						break;
 					case "Job":
 						if (selectedScout)
 						{
 							selectedScout.AssignJob(info.collider.GetComponent<BasicJob>());
 							selectedScout = null;
+
+							SelectedIndicator.SetParent(null);
+							SelectedIndicator.position = Vector3.zero;
 						}
 						break;
 				}			

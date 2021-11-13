@@ -6,6 +6,16 @@ public class BasicJob : MonoBehaviour
 {
 	public Transform JobPoint;
 
+	public enum JobID
+	{
+		Tent = 0,
+		Fishing = 1,
+		Wood = 2,
+		Fire = 3,
+		Cooking = 4
+	}
+	public JobID ID;
+	
 	public bool Completed = false;
 	[SerializeField] float TotalProgress;
 	[SerializeField] float Progress;

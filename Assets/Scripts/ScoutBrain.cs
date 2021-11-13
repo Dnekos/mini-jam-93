@@ -15,8 +15,10 @@ public class ScoutBrain : PathingBrain
 	bool inAction; // wether they are in the process of doing something
 
 	[Header("Social")]
+	[SerializeField] SocialCoordinator SC;
+
 	public string scoutName;
-	public List<GameObject> Friends;
+	public ScoutBrain[] Friends;
 	[SerializeField] int maxThoughts = 4;
 	public List<string> thoughts;
 
@@ -47,58 +49,15 @@ public class ScoutBrain : PathingBrain
 		// make sure destination isnt null
 		path.destination = transform.position;
 
-		PickName();
+		if (SC == null)
+			SC = FindObjectOfType<SocialCoordinator>();
+
+		scoutName = SC.AssignName();
 		
 		thoughts = new List<string>();
 
 		// picking friends
-		Friends = new List<GameObject>();
-		ScoutBrain[] scouts = FindObjectsOfType<ScoutBrain>();
-		for (int i = 0; i < Random.Range(1, 3); i++)
-		{
-			GameObject newobj;
-			int redun = 0;
-			do
-				newobj = scouts[Random.Range(0, scouts.Length)].gameObject;
-			while ((Friends.Contains(newobj) || newobj == gameObject) && ++redun < 100);
-			Friends.Add(newobj);
-		}
-	}
-
-	void PickName()
-	{
-		string[] scoutNames = {
-			"Demetri",
-			"Peter",
-			"Max",
-			"Luke",
-			"Michael",
-			"Alex",
-			"Vincent",
-			"Ian",
-			"Jacob",
-			"Anthony",
-			"Liam",
-			"Cole",
-			"Jake",
-			"Matthew",
-			"Steven",
-			"Robert",
-			"Nathan",
-			"Nick",
-			"Brunin",
-			"Patrick",
-			"Shane",
-			"J.J.",
-			"Dani",
-			"Chris",
-			"Wren",
-			"Julian",
-			"Aiden",
-			"Al",
-			"Ronald",
-			"Spencer"};
-		scoutName = scoutNames[Random.Range(0, scoutNames.Length)];
+		Friends = SC.AssignFriends(this);
 	}
 
 	#region IEnumerators
@@ -112,6 +71,8 @@ public class ScoutBrain : PathingBrain
 		ActiveJob.UpdateScout(this);
 		inAction = false;
 
+		AddThought(SC.WorkThought(ActiveJob.ID));
+
 		StateCheck();
 	}
 
@@ -124,6 +85,8 @@ public class ScoutBrain : PathingBrain
 		inAction = false;
 
 		Focus += IdleFocusIncrement;
+		
+		AddThought(SC.IdleThought());
 
 		StateCheck();
 	}
@@ -134,11 +97,20 @@ public class ScoutBrain : PathingBrain
 		Focus++;
 		Fun++;
 		inAction = false;
+		AddThought(SC.SocialThought());
+
 
 		StateCheck();
 	}
 	#endregion
+	void AddThought(string thought)
+	{
+		thoughts.Add(thought);
+		if (thoughts.Count > maxThoughts)
+			thoughts.RemoveAt(0);
+	}
 
+	#region scoutmaster actions
 	public void AssignJob(BasicJob newjob)
 	{
 		if (newjob == null)
@@ -166,7 +138,8 @@ public class ScoutBrain : PathingBrain
 
 		SetDestination(point);
 	}
-
+	#endregion
+	
 	// Update is called once per frame
 	void Update()
     {
@@ -256,7 +229,7 @@ public class ScoutBrain : PathingBrain
 		Debug.Log(scoutName + "(" + gameObject + ") is now working");
 
 		state = ScoutState.Working;
-		ActiveJob = FindObjectOfType<BasicJob>();
+		ActiveJob = SC.AssignJob();
 		path.destination = ActiveJob.JobPoint.position;
 	}
 }

@@ -4918,10 +4918,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JobPoint: {fileID: 7661561746634451160}
+  ID: 3
   Completed: 0
   TotalProgress: 10
   Progress: 0
   HealthValue: 10
+  FunInc: 0
+  FocusInc: 0
   VisualMethod: 1
   stages:
   - {fileID: 7391035914310148712}

@@ -19,8 +19,8 @@ public class ScoutUI : MonoBehaviour, IDragHandler,IBeginDragHandler
 	void Start()
     {
 		Nametxt.text = scout.scoutName;
-		//Friends[0].text = scout.Friends[0].GetComponent<ScoutBrain>().scoutName;
-		//Friends[1].text = scout.Friends[1].GetComponent<ScoutBrain>().scoutName;
+		Friends[0].text = scout.Friends[0].GetComponent<ScoutBrain>().scoutName;
+		Friends[1].text = scout.Friends[1].GetComponent<ScoutBrain>().scoutName;
 
 	}
 
@@ -31,7 +31,7 @@ public class ScoutUI : MonoBehaviour, IDragHandler,IBeginDragHandler
 		FunBar.localScale = new Vector3(scout.Fun / scout.maxStat, 1, 1);
 		for (int i = 0; i < scout.thoughts.Count; i++)
 		{
-			ThoughtPanel[i].text = scout.thoughts[i];
+			ThoughtPanel[i].text = scout.scoutName + scout.thoughts[i];
 		}
 	}
 

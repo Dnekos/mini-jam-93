@@ -1832,10 +1832,10 @@ MonoBehaviour:
   - {fileID: 6134768490404529890}
   - {fileID: 6134768491038904206}
   ThoughtPanel:
-  - {fileID: 2991436821934965534}
-  - {fileID: 3995536785285964453}
-  - {fileID: 3997687995505626311}
   - {fileID: 8920911131952219624}
+  - {fileID: 3997687995505626311}
+  - {fileID: 3995536785285964453}
+  - {fileID: 2991436821934965534}
 --- !u!1001 &2490859550143376319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1843,6 +1843,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6134768490300831774}
     m_Modifications:
+    - target: {fileID: 1579615155230844792, guid: ed2bfb0d092944a448081d007977886e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1579615155230844792, guid: ed2bfb0d092944a448081d007977886e, type: 3}
       propertyPath: m_fontColor.a
       value: 0.6313726
@@ -1925,7 +1929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6842433427509896146, guid: ed2bfb0d092944a448081d007977886e, type: 3}
       propertyPath: m_Name
-      value: ActivityText (5)
+      value: ActivityText BotMid
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed2bfb0d092944a448081d007977886e, type: 3}
@@ -1952,6 +1956,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6134768490300831774}
     m_Modifications:
+    - target: {fileID: 1579615155230844792, guid: ed2bfb0d092944a448081d007977886e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1579615155230844792, guid: ed2bfb0d092944a448081d007977886e, type: 3}
       propertyPath: m_fontColor.a
       value: 0.3137255
@@ -2034,7 +2042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6842433427509896146, guid: ed2bfb0d092944a448081d007977886e, type: 3}
       propertyPath: m_Name
-      value: ActivityText (4)
+      value: ActivityText UpMid
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed2bfb0d092944a448081d007977886e, type: 3}
@@ -2061,6 +2069,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6134768490300831774}
     m_Modifications:
+    - target: {fileID: 1579615155230844792, guid: ed2bfb0d092944a448081d007977886e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1579615155230844792, guid: ed2bfb0d092944a448081d007977886e, type: 3}
       propertyPath: m_fontColor.a
       value: 0.078431375
@@ -2143,7 +2155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6842433427509896146, guid: ed2bfb0d092944a448081d007977886e, type: 3}
       propertyPath: m_Name
-      value: ActivityText (3)
+      value: ActivityText Top
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed2bfb0d092944a448081d007977886e, type: 3}
@@ -2170,6 +2182,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6134768490300831774}
     m_Modifications:
+    - target: {fileID: 1579615155230844792, guid: ed2bfb0d092944a448081d007977886e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4533558334118673010, guid: ed2bfb0d092944a448081d007977886e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2244,7 +2260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6842433427509896146, guid: ed2bfb0d092944a448081d007977886e, type: 3}
       propertyPath: m_Name
-      value: ActivityText (6)
+      value: ActivityText Bottom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed2bfb0d092944a448081d007977886e, type: 3}
