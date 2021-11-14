@@ -37,6 +37,8 @@ public class ScoutMaster : PathingBrain
 				switch (info.transform.gameObject.tag)
 				{
 					case "Ground":
+						if (info.normal == Vector3.up)
+							return;
 						if (selectedScout)
 						{
 							selectedScout.MoveTo(info.point);

@@ -181,15 +181,15 @@ public class ScoutBrain : PathingBrain
 
 	void StateCheck()
 	{
-		float rando = Random.Range(1, 101);
+		float rando = Random.Range(1, 151);
 
 		Debug.Log(gameObject + " rolled " + rando + " on state change");
 		switch (state)
 		{
 			case ScoutState.Idle:
-				if (rando < 60)
+				if (rando < 90)
 					startIdle();
-				else if (rando < 60 + Focus)
+				else if (rando < 90 + Focus)
 					startWork();
 				else
 					queueSocial();
@@ -197,7 +197,7 @@ public class ScoutBrain : PathingBrain
 			case ScoutState.Working:
 				if (rando < 9 * Focus)
 					break;//startWork(); // commented out so that you stay at the same job
-				else if (rando > 90)
+				else if (rando > 135)
 					startIdle();
 				else
 					queueSocial();

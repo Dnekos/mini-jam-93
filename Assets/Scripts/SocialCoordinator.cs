@@ -180,7 +180,7 @@ public class SocialCoordinator : MonoBehaviour
 		do
 		{
 			job = AllJobs[Random.Range(0, AllJobs.Length)];
-		} while (job.Completed && ++redun < 100);
+		} while ((job.Completed || job.ActivelyWorkedOn)&& ++redun < 100);
 		return job;
 	}
 	#endregion
