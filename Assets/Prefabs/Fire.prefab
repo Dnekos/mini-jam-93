@@ -5015,16 +5015,17 @@ MonoBehaviour:
   JobPoint: {fileID: 7661561746634451160}
   ID: 3
   Completed: 0
-  TotalProgress: 10
+  TotalProgress: 15
   Progress: 0
-  HealthValue: 10
   FunInc: 0
-  FocusInc: 0
+  FocusInc: -1
   VisualMethod: 1
   stages:
   - {fileID: 7391035914310148712}
   - {fileID: 7391035913587907295}
   - {fileID: 7661561745185560191}
+  OnlyPlaySoundAtEnd: 1
+  SoundName: Fire
   ActivelyWorkedOn: 0
   SceneCanvas: {fileID: 7102193111517134746}
   dial: {fileID: 4342499286842531924}

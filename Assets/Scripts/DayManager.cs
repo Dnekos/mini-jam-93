@@ -28,6 +28,9 @@ public class DayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (SC.paused)
+			return;
+
 		timeElapsed += Time.deltaTime;
 		float ratio = timeElapsed / (MinutesTillEnd * 60);
 

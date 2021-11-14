@@ -388,8 +388,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6134768491281304827}
-        m_TargetAssemblyTypeName: ScoutUI, Assembly-CSharp
+      - m_Target: {fileID: 6407823199435786186}
+        m_TargetAssemblyTypeName: DraggablePanel, Assembly-CSharp
         m_MethodName: ExitUI
         m_Mode: 1
         m_Arguments:
@@ -1661,6 +1661,7 @@ GameObject:
   - component: {fileID: 6134768491281304825}
   - component: {fileID: 6134768491281304826}
   - component: {fileID: 6134768491281304827}
+  - component: {fileID: 6407823199435786186}
   m_Layer: 5
   m_Name: ScoutPanel
   m_TagString: Untagged
@@ -1760,6 +1761,18 @@ MonoBehaviour:
   - {fileID: 3997687995505626311}
   - {fileID: 3995536785285964453}
   - {fileID: 2991436821934965534}
+--- !u!114 &6407823199435786186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6134768491281304821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c8121a68af956e40be97d994ec1528a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6749055926108329858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1933,6 +1946,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed2bfb0d092944a448081d007977886e, type: 3}
+--- !u!224 &2052270170336448973 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4533558334118673010, guid: ed2bfb0d092944a448081d007977886e, type: 3}
+  m_PrefabInstance: {fileID: 2490859550143376319}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3997687995505626311 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1579615155230844792, guid: ed2bfb0d092944a448081d007977886e, type: 3}
@@ -1944,11 +1962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &2052270170336448973 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4533558334118673010, guid: ed2bfb0d092944a448081d007977886e, type: 3}
-  m_PrefabInstance: {fileID: 2490859550143376319}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2493045945472796125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2046,6 +2059,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed2bfb0d092944a448081d007977886e, type: 3}
+--- !u!224 &2050117894159073199 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4533558334118673010, guid: ed2bfb0d092944a448081d007977886e, type: 3}
+  m_PrefabInstance: {fileID: 2493045945472796125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3995536785285964453 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1579615155230844792, guid: ed2bfb0d092944a448081d007977886e, type: 3}
@@ -2057,11 +2075,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &2050117894159073199 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4533558334118673010, guid: ed2bfb0d092944a448081d007977886e, type: 3}
-  m_PrefabInstance: {fileID: 2493045945472796125}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4352830666869482598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2264,6 +2277,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed2bfb0d092944a448081d007977886e, type: 3}
+--- !u!224 &5822298612464031970 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4533558334118673010, guid: ed2bfb0d092944a448081d007977886e, type: 3}
+  m_PrefabInstance: {fileID: 7937201772585329296}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8920911131952219624 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1579615155230844792, guid: ed2bfb0d092944a448081d007977886e, type: 3}
@@ -2275,8 +2293,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &5822298612464031970 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4533558334118673010, guid: ed2bfb0d092944a448081d007977886e, type: 3}
-  m_PrefabInstance: {fileID: 7937201772585329296}
-  m_PrefabAsset: {fileID: 0}

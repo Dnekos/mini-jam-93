@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class ScoutUI : MonoBehaviour, IDragHandler,IBeginDragHandler
+public class ScoutUI : MonoBehaviour
 {
 	public ScoutBrain scout;
 	[Header("UI Components"), SerializeField]
@@ -35,18 +35,4 @@ public class ScoutUI : MonoBehaviour, IDragHandler,IBeginDragHandler
 		}
 	}
 
-	public void ExitUI()
-	{
-		Destroy(gameObject);
-	}
-
-	public void OnBeginDrag(PointerEventData eventData)
-	{
-		//DragOffset = transform.position - eventData.position;
-	}
-
-	public void OnDrag(PointerEventData eventData)
-	{
-		transform.position += (Vector3)eventData.delta;
-	}
 }

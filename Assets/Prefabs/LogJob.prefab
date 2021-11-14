@@ -1,12 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &7690106143238374710
+--- !u!65 &7690106144730486466
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7384169574615346946}
+  m_GameObject: {fileID: 7384169573116131757}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -20,6 +20,19 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7384169573665264555}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.63396096, y: 0.34641027, z: 0.7099999}
+  m_Center: {x: -0.0077365935, y: 0.17320505, z: 0}
+--- !u!65 &7690106143238374710
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7384169574615346946}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -131,6 +144,7 @@ MonoBehaviour:
   - {fileID: 7384169574615346946}
   - {fileID: 7384169574475540038}
   - {fileID: 7384169573495513861}
+  SoundName: Chop
   ActivelyWorkedOn: 0
   SceneCanvas: {fileID: 3458813361779215044}
   dial: {fileID: 7985879897990960394}
@@ -170,19 +184,6 @@ Transform:
   m_Father: {fileID: 7690106144431686352}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7690106144730486466
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7384169573116131757}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.63396096, y: 0.34641027, z: 0.7099999}
-  m_Center: {x: -0.0077365935, y: 0.17320505, z: 0}
 --- !u!1 &7690106144855077788
 GameObject:
   m_ObjectHideFlags: 0

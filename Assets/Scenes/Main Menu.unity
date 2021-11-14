@@ -12327,6 +12327,74 @@ CapsuleCollider:
   m_Height: 1.3324169
   m_Direction: 1
   m_Center: {x: -0.00892508, y: 0.66620845, z: -0.008665249}
+--- !u!1 &1858364608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1858364610}
+  - component: {fileID: 1858364609}
+  m_Layer: 0
+  m_Name: Sound Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1858364609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858364608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22de1adcbfa5c443a7bc54f85a76b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: LevelMusic
+    clip: {fileID: 8300000, guid: 0bfd4182b7b084c4e9a8fc56df5d4dfd, type: 3}
+    loop: 1
+    vol: 0.235
+  - name: Forest
+    clip: {fileID: 8300000, guid: 1472e453e3ce6e648b1e5dc374452401, type: 3}
+    loop: 1
+    vol: 0.526
+  - name: Fish
+    clip: {fileID: 8300000, guid: 2811757817a36e94ebea2f875689372f, type: 3}
+    loop: 0
+    vol: 0.687
+  - name: Chop
+    clip: {fileID: 8300000, guid: 4998932056afc904682c529ccfad50b6, type: 3}
+    loop: 0
+    vol: 0.695
+  - name: Fire
+    clip: {fileID: 8300000, guid: fc98761fbf713964dbda57e1037e57ef, type: 3}
+    loop: 1
+    vol: 0.518
+  - name: Tent
+    clip: {fileID: 8300000, guid: e22262f4142739a4792e7eb40c6336d9, type: 3}
+    loop: 0
+    vol: 0.695
+--- !u!4 &1858364610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858364608}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20.821693, y: -10.919157, z: -9.986877}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1859206789
 GameObject:
   m_ObjectHideFlags: 0

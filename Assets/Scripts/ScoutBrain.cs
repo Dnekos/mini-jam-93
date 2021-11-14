@@ -104,7 +104,7 @@ public class ScoutBrain : PathingBrain
 	{
 		inAction = true;
 		yield return new WaitForSeconds(Random.Range(IdleWaitRange.x, IdleWaitRange.y));
-		Focus+= Random.Range(1, 3); ;
+		Focus+= Random.Range(0.5f, 2); ;
 		Fun+= Random.Range(1,4);
 		inAction = false;
 		Debug.Log(scoutName+"finished socializign");

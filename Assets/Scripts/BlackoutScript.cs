@@ -35,7 +35,7 @@ public class BlackoutScript : MonoBehaviour
                 FadeOut = false;
                 Destroy(transform.parent.gameObject);
             }
-            col.a = Mathf.Lerp(col.a, 0, Time.deltaTime);
+            col.a = Mathf.Lerp(col.a, 0, speedmultiplier * Time.deltaTime);
         }
         else
         { 

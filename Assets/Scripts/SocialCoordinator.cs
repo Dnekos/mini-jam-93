@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Pathfinding;
+using TMPro;
 
 public class SocialCoordinator : MonoBehaviour
 {
@@ -26,6 +27,11 @@ public class SocialCoordinator : MonoBehaviour
 
 	[Header("UI"),SerializeField] GameObject ScoutUIPrefab;
 	int mask;
+	[SerializeField] GameObject InfoPanel;
+	[SerializeField] TextMeshProUGUI[] infotexts;
+
+	[Header("Pause"),SerializeField] GameObject PauseMenu;
+	public bool paused = false;
 
 	private void Awake()
 	{
@@ -77,8 +83,32 @@ public class SocialCoordinator : MonoBehaviour
 			if (Physics.Raycast(ray, out info, 100.0f, mask))
 			{
 				Debug.Log("right clicked on " + info.collider.gameObject);
-				Instantiate(ScoutUIPrefab, transform).GetComponent<ScoutUI>().scout = info.collider.GetComponent<ScoutBrain>();
+				if (info.collider.tag == "Scout")
+					Instantiate(ScoutUIPrefab, transform).GetComponent<ScoutUI>().scout = info.collider.GetComponent<ScoutBrain>();
+				else if (info.collider.tag == "Scoutmaster")
+					InfoPanel.SetActive(true);
 			}
+		}
+		for (int i = 0;  i < infotexts.Length; i++)
+		{
+			int total = 0, completed = 0;
+			foreach (BasicJob job in AllJobs)
+			{
+				if (job.ID == (BasicJob.JobID)i)
+				{
+					total++;
+					completed += (job.Completed) ? 1 : 0;
+				}
+			}
+			infotexts[i].text = completed + "/" + total;
+		}
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			paused = !paused;
+			PauseMenu.SetActive(paused);
+			foreach (ScoutBrain scoot in AllScouts)
+				scoot.GetComponent<AIPath>().canMove = !paused;
 		}
 	}
 

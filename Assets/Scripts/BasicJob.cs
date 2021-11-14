@@ -34,6 +34,8 @@ public class BasicJob : MonoBehaviour
 	StageMethod VisualMethod = StageMethod.Add;
 	[SerializeField] GameObject[] stages;
 	int activestage = 0;
+	[SerializeField] bool OnlyPlaySoundAtEnd = false;
+	[SerializeField] string SoundName = "";
 	
 	[Header("UI")]
 	public bool ActivelyWorkedOn = false;
@@ -67,6 +69,9 @@ public class BasicJob : MonoBehaviour
 		UpdateVisual();
 		if (Progress >= TotalProgress)
 		{
+			if (!OnlyPlaySoundAtEnd)
+				AudioManager.instance.PlayIfNot(SoundName);
+
 			Completed = true;
 		}
 	}
@@ -78,6 +83,9 @@ public class BasicJob : MonoBehaviour
 
 	void UpdateVisual()
 	{
+		if (!OnlyPlaySoundAtEnd)
+			AudioManager.instance.PlaySound(SoundName);
+
 		float progRatio = Progress / TotalProgress;
 
 		if (progRatio >=  activestage / (float)stages.Length && activestage < stages.Length-1)

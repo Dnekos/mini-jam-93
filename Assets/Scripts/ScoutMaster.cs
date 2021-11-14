@@ -37,7 +37,7 @@ public class ScoutMaster : PathingBrain
 				switch (info.transform.gameObject.tag)
 				{
 					case "Ground":
-						if (info.normal == Vector3.up)
+						if (info.normal != Vector3.up)
 							return;
 						if (selectedScout)
 						{
@@ -59,9 +59,10 @@ public class ScoutMaster : PathingBrain
 
 						break;
 					case "Job":
-						if (selectedScout)
+						BasicJob job = info.collider.GetComponent<BasicJob>();
+						if (selectedScout && !job.Completed && !job.ActivelyWorkedOn)
 						{
-							selectedScout.AssignJob(info.collider.GetComponent<BasicJob>());
+							selectedScout.AssignJob(job);
 							selectedScout = null;
 
 							SelectedIndicator.SetParent(null);

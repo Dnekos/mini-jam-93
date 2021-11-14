@@ -308,7 +308,7 @@ MonoBehaviour:
   IdleDist: 1
   IdleFocusIncrement: 1
   Focus: 7
-  Skill: 1
+  Skill: 0.75
   Fun: 7
   maxStat: 15
   SpeedMultiplier: 1

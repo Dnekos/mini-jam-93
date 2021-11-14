@@ -52,9 +52,8 @@ MonoBehaviour:
   Completed: 0
   TotalProgress: 30
   Progress: 0
-  HealthValue: 30
   FunInc: -2
-  FocusInc: 1
+  FocusInc: 0
   VisualMethod: 1
   stages:
   - {fileID: 8916678800530512723}
@@ -63,6 +62,8 @@ MonoBehaviour:
   - {fileID: 3226403832034027467}
   - {fileID: 2490492757184111197}
   - {fileID: 3144070541086410016}
+  OnlyPlaySoundAtEnd: 0
+  SoundName: Fish
   ActivelyWorkedOn: 0
   SceneCanvas: {fileID: 4455620636268441670}
   dial: {fileID: 7135439334902640520}
