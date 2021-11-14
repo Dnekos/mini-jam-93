@@ -307,10 +307,10 @@ MonoBehaviour:
   IdleWaitRange: {x: 2, y: 5}
   IdleDist: 1
   IdleFocusIncrement: 1
-  Focus: 5
+  Focus: 7
   Skill: 1
-  Fun: 5
-  maxStat: 10
+  Fun: 7
+  maxStat: 15
   SpeedMultiplier: 1
   ActiveJob: {fileID: 0}
 --- !u!136 &2281365095534223785

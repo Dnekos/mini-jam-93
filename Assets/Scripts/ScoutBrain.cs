@@ -49,7 +49,8 @@ public class ScoutBrain : PathingBrain
 		base.Start();
 
 		// make sure destination isnt null
-		path.destination = transform.position;
+		startIdle();
+		//path.destination = transform.position;
 
 		if (SC == null)
 			SC = FindObjectOfType<SocialCoordinator>();
@@ -66,10 +67,17 @@ public class ScoutBrain : PathingBrain
 	IEnumerator DoWork()
 	{
 		inAction = true;
-		Debug.Log(scoutName + "waiting for " + (SpeedMultiplier / Skill));
-		
-		yield return new WaitForSeconds(SpeedMultiplier / Skill);
+		ActiveJob.ActivelyWorkedOn = true;
+
+		float waitTime = SpeedMultiplier / Skill;
+
+		yield return new WaitForSeconds(waitTime * 0.5f);
+
 		ActiveJob.IncrementProgress();
+
+		yield return new WaitForSeconds(waitTime * 0.5f);
+
+		ActiveJob.ActivelyWorkedOn = false;
 		ActiveJob.UpdateScout(this);
 		inAction = false;
 
@@ -96,8 +104,8 @@ public class ScoutBrain : PathingBrain
 	{
 		inAction = true;
 		yield return new WaitForSeconds(Random.Range(IdleWaitRange.x, IdleWaitRange.y));
-		Focus++;
-		Fun++;
+		Focus+= Random.Range(1, 3); ;
+		Fun+= Random.Range(1,4);
 		inAction = false;
 		Debug.Log(scoutName+"finished socializign");
 
@@ -188,7 +196,7 @@ public class ScoutBrain : PathingBrain
 				break;
 			case ScoutState.Working:
 				if (rando < 9 * Focus)
-					startWork();
+					break;//startWork(); // commented out so that you stay at the same job
 				else if (rando > 90)
 					startIdle();
 				else

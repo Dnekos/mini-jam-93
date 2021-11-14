@@ -13,9 +13,6 @@ public class ScoutMaster : PathingBrain
 
 	[SerializeField] Transform SelectedIndicator;
 
-	// move to world manager later
-	public static int Health = 0;
-
     // Start is called before the first frame update
     override protected void Start()
     {
