@@ -9,12 +9,14 @@ public class PathingBrain : MonoBehaviour
 	Transform Reticle;
 	protected AIPath path;
 
+	Vector3 StartPos;
 	Animator anim;
 
 	protected virtual void Start()
 	{
-		anim = GetComponent<Animator>();
+		StartPos = transform.position;
 
+		anim = GetComponent<Animator>();
 		path = GetComponent<AIPath>();
 		if (Reticle == null)
 			Reticle = GameObject.Find("PosReticle").transform;
@@ -33,5 +35,8 @@ public class PathingBrain : MonoBehaviour
 	protected virtual void Update()
     {
 		anim.SetBool("isMoving", path.velocity.magnitude >= 0.05f);
+		if (transform.position.y < -5)
+			transform.position = StartPos;
+
     }
 }

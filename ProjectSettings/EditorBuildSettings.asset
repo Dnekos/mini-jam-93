@@ -12,7 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Help Menu.unity
     guid: 2b6c761c11c9d614db5ded52826be3c3
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Backyard.unity
+    guid: bb9dfcb1093fd924eb1446d9c0f03a7b
+  - enabled: 1
+    path: Assets/Scenes/CrossRiver.unity
+    guid: 51f29438df264e845a3c2c987d9f0880
+  - enabled: 1
+    path: Assets/Scenes/Site40.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/End Screen.unity

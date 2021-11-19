@@ -7932,6 +7932,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Blackout: {fileID: 1272118974350726408, guid: 8b3e2758b0c0b1d49a27ebe48a98918c, type: 3}
+  FirstLevel: 2
+  NumLevels: 3
+  LevelNameTxt: {fileID: 0}
+  LevelNames: []
 --- !u!1 &655088285
 GameObject:
   m_ObjectHideFlags: 0
@@ -11246,7 +11250,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

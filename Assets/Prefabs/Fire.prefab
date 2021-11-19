@@ -5015,7 +5015,7 @@ MonoBehaviour:
   JobPoint: {fileID: 7661561746634451160}
   ID: 3
   Completed: 0
-  TotalProgress: 15
+  TotalProgress: 8
   Progress: 0
   FunInc: 0
   FocusInc: -1

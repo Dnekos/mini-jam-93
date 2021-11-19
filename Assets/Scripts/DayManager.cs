@@ -40,7 +40,7 @@ public class DayManager : MonoBehaviour
 		if (timeElapsed >= (MinutesTillEnd * 60))
 		{
 			SC.PrepTransport();
-			Instantiate(Blackout).GetComponentInChildren<BlackoutScript>().index = SceneManager.GetActiveScene().buildIndex+1;
+			Instantiate(Blackout).GetComponentInChildren<BlackoutScript>().index = 6;
 			timeElapsed = Mathf.NegativeInfinity; // prevent too many blackouts existing at once    
 		}
 	}

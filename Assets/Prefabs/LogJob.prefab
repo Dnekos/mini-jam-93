@@ -132,7 +132,7 @@ MonoBehaviour:
   JobPoint: {fileID: 7690106143830854042}
   ID: 2
   Completed: 0
-  TotalProgress: 25
+  TotalProgress: 10
   Progress: 0
   FunInc: 1
   FocusInc: -2
@@ -144,6 +144,7 @@ MonoBehaviour:
   - {fileID: 7384169574615346946}
   - {fileID: 7384169574475540038}
   - {fileID: 7384169573495513861}
+  OnlyPlaySoundAtEnd: 0
   SoundName: Chop
   ActivelyWorkedOn: 0
   SceneCanvas: {fileID: 3458813361779215044}

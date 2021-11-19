@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Reticle: {fileID: 0}
+  SelectedIndicator: {fileID: 0}
 --- !u!1001 &1636525625652577790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39,6 +40,10 @@ PrefabInstance:
     - target: {fileID: 32352926440687111, guid: 1fb64ea9b6ecfcf4ea629400f31891ca, type: 3}
       propertyPath: target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 32352926440687112, guid: 1fb64ea9b6ecfcf4ea629400f31891ca, type: 3}
+      propertyPath: pickNextWaypointDist
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 32352926440687114, guid: 1fb64ea9b6ecfcf4ea629400f31891ca, type: 3}
       propertyPath: m_RootOrder
